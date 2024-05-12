@@ -26,13 +26,15 @@ const KangWon = () => {
 
   useEffect(() => {
     const KangWonData = async () => {
-      const response = await fetch("http://localhost:8000/review/KangWon", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app/review/KangWon",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       setKangWon(data.map((location) => location));
     };

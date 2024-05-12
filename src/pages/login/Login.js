@@ -51,17 +51,19 @@ const Login = () => {
 
         <S.Form
           onSubmit={handleSubmit(async (data) => {
-            await fetch("http://localhost:8000/login", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: data.email,
-                password: data.password,
-              }),
-              credentials: "include",
-            });
+            await fetch(
+              "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app/login",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  email: data.email,
+                  password: data.password,
+                }),
+              }
+            );
             handleHomePage();
           })}
         >

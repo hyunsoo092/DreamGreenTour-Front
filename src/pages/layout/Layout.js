@@ -49,7 +49,7 @@ const Layout = ({ isUse = false }) => {
         <Link to={"/tour"}>여행</Link>
         <Link to={"/review/Seoul"}>후기</Link>
         <Link to={"/theme"}>테마</Link>
-        <Link to={"airline"}>항공/숙박</Link>
+        <Link to={"/airline"}>항공/숙박</Link>
       </S.MenuWrapper>
 
       {!isUse && <Outlet />}

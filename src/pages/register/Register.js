@@ -93,22 +93,24 @@ const Register = () => {
             onSubmit={handleSubmit(async (formData) => {
               console.log(formData);
               try {
-                const response = await fetch("http://localhost:8000/register", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    gender: gender,
-                    birth: formData.birth,
-                    phoneNum: formData.phoneNum,
-                    password: formData.password,
-                    foreign: formData.foreign,
-                  }),
-                  credentials: "include",
-                });
+                const response = await fetch(
+                  "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app/register",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      name: formData.name,
+                      email: formData.email,
+                      gender: gender,
+                      birth: formData.birth,
+                      phoneNum: formData.phoneNum,
+                      password: formData.password,
+                      foreign: formData.foreign,
+                    }),
+                  }
+                );
 
                 if (!response.ok) {
                   throw new Error("회원가입 요청이 실패했습니다.");

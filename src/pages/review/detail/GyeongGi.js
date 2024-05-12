@@ -25,13 +25,15 @@ const GyeongGi = () => {
 
   useEffect(() => {
     const GyeongGiData = async () => {
-      const response = await fetch("http://localhost:8000/review/GyeongGi", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app/review/GyeongGi",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       setGyeongGi(data.map((location) => location));
     };
