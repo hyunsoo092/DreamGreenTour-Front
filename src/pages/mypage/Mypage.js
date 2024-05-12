@@ -25,7 +25,8 @@ const Mypage = () => {
 
           <S.package>
             <S.div>
-              <p>여행 만들기<FontAwesomeIcon icon={faCirclePlus} /></p>
+            <S.Image1 src={`${process.env.PUBLIC_URL}/tour/best/1.png`} alt="서울"/>
+            <S.text>여행 만들기<FontAwesomeIcon icon={faCirclePlus}/></S.text>
             </S.div>
           </S.package>
 
@@ -46,28 +47,30 @@ const Mypage = () => {
                </Link>
             </S.back>
 
-         <S.package>
-           <S.div>
-               <p>여행 만들기<FontAwesomeIcon icon={faCirclePlus} /></p>
-           </S.div>
-         </S.package>
-
          <S.city>
             <p className="city">나의 여행 도시 목록 <FontAwesomeIcon icon={faDiamond}/></p>
          </S.city>
+
+         <S.package>
+            <S.div>
+            <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/jeju.png`} alt="서울"/>
+            <S.text>여행 만들기<FontAwesomeIcon icon={faCirclePlus}/></S.text>
+            </S.div>
+          </S.package>
+
+
       </>
     )
   }
 
   return (
     <div>
+
       {displayshow}
      
-      {/* <button className="1" onClick={() => setDisplayContent('one')}>1번버튼</button>
-      <button className="2" onClick={() => setDisplayContent('two')}>2번버튼</button>
-      <button className="3" onClick={() => setDisplayContent('three')}>3번버튼</button>
-      <button className="4" onClick={() => setDisplayContent('four')}>4번버튼</button>
-      <button className="5" onClick={() => setDisplayContent('five')}>5번버튼</button> */}
+      <button className="1" onClick={() => setDisplayContent('one')}>1번유저</button>
+      <button className="2" onClick={() => setDisplayContent('two')}>2번유저</button>
+     
     </div>
   );
 };

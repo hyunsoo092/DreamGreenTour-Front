@@ -1,14 +1,13 @@
 import React from "react";
-
-
+import S from "../style";
 
 const InfoUpdate = () => {
-  
-  
   return (
-   <div>
-   
-    프로필 관리페이지
+    <div>
+      <form>
+        <input type="text" placeholder="아이디" />
+        <input type="password" placeholder="비밀번호" />
+      </form>
     </div>
   );
 };

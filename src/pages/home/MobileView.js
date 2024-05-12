@@ -1257,6 +1257,124 @@ const MobileView = () => {
       </S.end>
     </S.div>
   );
+  
+  
+  return  (
+  <S.div>
+         <S.Wrapper>
+            <S.LetterWrapper>
+              고객님,<br/> 
+              어떤 여행을 꿈꾸시나요?
+            </S.LetterWrapper>
+            <S.ListWrapper>
+             <button onClick={() => setContentType('flight')}>항공</button>
+             <button onClick={() => setContentType('hotel')}>호텔</button>
+            </S.ListWrapper>
+            <S.Show>
+              {contentToShow}
+            </S.Show>
+            <S.ButtonWrapper>
+              <button>숙소 검색</button>
+            </S.ButtonWrapper>
+          </S.Wrapper>
+
+
+        <S.Title1>
+            <p className='title1'>DREAMGREENTOUR RECOMMEND</p>
+            <p className='title2'>어디로 여행을 떠나시나요?</p>
+        </S.Title1> 
+
+
+<S.region>
+  <Slider {...settings}>
+
+
+ <S.Circle onClick={() => handleClick('서울')}>
+     <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/seoul.png`} alt="서울"/>
+     <S.Text>서울</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('강원도')}>
+     <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/kangwon.png`} alt="강원도"/>
+     <S.Text>강원도</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('전라도')}>
+     <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/jeonla.png`} alt="전라도"/>
+     <S.Text>전라도</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('경상도')}>
+   <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/keongsang.png`} alt="경상도"/>
+   <S.Text>경상도</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('경기도')}>
+   <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/keongi.png`} alt="경기도"/>
+   <S.Text>경기도</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('충청도')}>
+   <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/chong.png`} alt="충청도"/>
+   <S.Text>충청도</S.Text>
+ </S.Circle>
+
+ <S.Circle onClick={() => handleClick('제주도')}>
+   <S.Image1 src={`${process.env.PUBLIC_URL}/home/circle/jeju.png`} alt="제주도"/>
+   <S.Text>제주도</S.Text>
+ </S.Circle>
+
+
+ </Slider>
+ </S.region>
+
+        <S.top>
+          <p className='num1'>WEEKLY BEST DEALS</p>
+          <p className='num2'>이번 주에 가장</p>
+          <p className='num2'>사랑받은 여행이에요</p>
+        </S.top>
+
+        <S.country>
+            <ul>
+              <li><button onClick={() => setTravelType('seoul')}>서울</button></li>
+              <li><button onClick={() => setTravelType('keong')}>경기도</button></li>
+              <li><button onClick={() => setTravelType('chung')}>충청도</button></li>
+              <li><button onClick={() => setTravelType('jeon')}>전라도</button></li>
+              <li><button onClick={() => setTravelType('kyeong')}>경상도</button></li>
+              <li><button onClick={() => setTravelType('jeju')}>제주도</button></li>
+              <li><button onClick={() => setTravelType('kangwon')}>강원도</button></li>
+            </ul>
+        </S.country>
+
+        <S.package>
+         {travelToShow}
+        </S.package> 
+
+        <S.end>
+          <p className='last'>투어/입장권 예약상담</p>
+              <S.icons>
+                <FontAwesomeIcon icon={faPen}/>
+                <p>투어/입장권 상품 문의는 투어/입장권 상품페이지 내 "상품문의" 게시판을 이용 부탁합니다. <br /> <br />
+                투어/입장권 일반 문의는 "고객문의" 게시판을 이용 부탁합니다.<br /> <br/>
+                투어/입장권 예약, 취소, 결제, 환불은 "자주 찾는 질문" 게시판에서 확인 부탁합니다.</p>
+              </S.icons>
+          </S.end>
+
+          <S.end>
+          <p className='last'>투어/입장권 판매회원 가입</p>
+              <S.icons>
+                <FontAwesomeIcon icon={faPen}/>
+                <p>투어/입장권 상품 판매는 "판매회원 가입 안내" 페이지에서 별도의 회원가입 후 가능합니다. <br /> <br />
+                  판매회원 가입 문의 (국내) hhj1217@hanatour.com <br/> <br/>
+                  (해외)jinie27@hanatour.com</p>
+              </S.icons>
+          </S.end>
+
+  </S.div>
+);
+
 };
+
+
 
 export default MobileView;

@@ -215,25 +215,25 @@ const handleClick = (text) => {
   let path = '';
   switch (text) {
     case '서울':
-      path = '/Airline';
+      path = '/Tour';
       break;
     case '강원도':
-      path = '/Hotel';
+      path = '/Tour';
       break;
     case '전라도':
-      path = '/jeolla';
+      path = '/Tour';
       break;
     case '경상도':
-      path = '/gyeongsang';
+      path = '/Tour';
       break;
     case '경기도':
-      path = '/gyeongsang';
+      path = '/Tour';
       break;
     case '충청도':
-      path = '/gyeongsang';
+      path = '/Tour';
       break;
     case '제주도':
-      path = '/gyeongsang';
+      path = '/Tour';
       break;
     default:
       break;

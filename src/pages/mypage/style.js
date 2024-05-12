@@ -70,28 +70,43 @@ S.back = styled.div`
 S.package = styled.div`
     display: flex;
     gap: 20px;
-   
-    
 `
 
 S.div = styled.div` 
   position: absolute;
   bottom: 20%;
   left: 10%;
-  width: 15vw;
+  width: 17vw;
   height: 25vh;
-  background-color: aqua;
- 
   display: flex;
   justify-content: center;
   align-items: center;  
   cursor: pointer;
-    p {
-      font-size: ${theme.FONT_SIZE.h5};
-    } 
-    
 `
 
+S.Image1 = styled.img`
+   width:  100%;
+   height: 100%;
+   background-repeat: no-repeat;
+   background-size: cover; 
+   cursor: pointer;  
+`
+
+S.text = styled.div`
+   position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: ${theme.FONT_SIZE.h5};
+    font-weight: ${theme.FONT_WEIGHT.bold};
+    font-family: ${theme.FONT_FAMILY.heading};
+    display: flex; 
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    cursor: pointer;
+
+`
 
 
 export default S;

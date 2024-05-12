@@ -121,8 +121,8 @@ S.DropdownContainer1= styled.div`
   @media screen and (min-width: 200px) and (max-width: 450px) {
   position: absolute;
   text-align: center;
-  top: 23%;
-  width: 24%;
+  top: 39%;
+  width: 24%; 
   height: 10vh;
   display: flex;
 
@@ -209,7 +209,7 @@ S.DropdownContainer2= styled.div`
   @media screen and (min-width: 200px) and (max-width: 450px) {
   position: absolute;
   text-align: center;
-  top: 23%;
+  top: 39%;
   right: 50%;
   width: 24%;
   height: 10vh;
@@ -305,7 +305,7 @@ S.CalendarContainer = styled.div`
         width: 24%;
         height: auto;
         right: 24%;
-        top: 23%;
+        top: 39%;
         margin: 0 auto;
         cursor: pointer;  
         border: 2px solid green;
@@ -361,7 +361,7 @@ S.ButtonWrapper = styled.div`
     @media screen and (min-width: 200px) and (max-width: 450px) {
     position: absolute ;
     left: 75%;
-    top:23%;
+    top: 39%;
     width: 24%;
     height: 20%;
     button {
@@ -379,6 +379,7 @@ S.ButtonWrapper = styled.div`
     }
     
   `
+
   S.week = styled.div`
     width: 90vw;
   
@@ -402,9 +403,10 @@ S.ButtonWrapper = styled.div`
     }
 
     @media screen and (min-width: 200px) and (max-width: 450px) {
-      margin-top: 200px;
+      margin-top: 100px;
       width: 90vw;
-    .best {
+  
+      .best {
     margin-bottom: 15px;
     font-size: ${theme.FONT_SIZE.h4};
     font-weight: ${theme.FONT_WEIGHT.bold};

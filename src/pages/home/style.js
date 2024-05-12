@@ -110,7 +110,6 @@ S.ButtonWrapper = styled.div`
 S.Title1 = styled.div`
   .title1 {
     margin-left: 25px;
-
     padding: 10px;
     color: #f06c5e;
     font-size: 10px;
@@ -118,7 +117,7 @@ S.Title1 = styled.div`
   }
 
   .title2 {
-    margin-bottom: -30px;
+    top: 68%;
     font-size: ${theme.FONT_SIZE.h7};
     font-weight: ${theme.FONT_WEIGHT.bold};
     font-family: ${theme.FONT_FAMILY.heading};
@@ -290,7 +289,7 @@ S.top = styled.div`
 
   @media screen and (min-width: 200px) and (max-width: 450px) {
     position: absolute;
-    top: 83%;
+    bottom: -20%;
     left: 17%;
     display: flex;
     flex-direction: column;
@@ -325,7 +324,7 @@ S.country = styled.div`
 
   @media screen and (min-width: 200px) and (max-width: 450px) {
     position: absolute;
-    top: 99%;
+    bottom: -25%;
     left: 5%;
     width: 90vw;
     height: 70px;
@@ -366,12 +365,14 @@ S.package = styled.div`
     flex-wrap: wrap;
     align-items: center;
     margin: 0 auto;
-    margin-top: 350px;
+    margin-top: 360px;
     margin-bottom: 50px;
     width: 85vw;
     height: auto;
     gap: 30px;
     margin-left: 13px;
+
+    
   }
 `;
 
