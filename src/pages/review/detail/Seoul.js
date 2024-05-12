@@ -25,13 +25,16 @@ const Seoul = () => {
 
   useEffect(() => {
     const SeoulData = async () => {
-      const response = await fetch("http://localhost:8000/review/Seoul", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app//review/Seoul",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
       const data = await response.json();
       setSeoul(data.map((location) => location));
     };
