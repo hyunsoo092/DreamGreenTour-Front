@@ -32,19 +32,22 @@ const Write = () => {
           onSubmit={handleSubmit(async (formData) => {
             console.log(formData);
             try {
-              const response = await fetch("http://localhost:8000/write", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  location: formData.location,
-                  place: formData.place,
-                  text: formData.text,
-                  heart: 0,
-                }),
-                credentials: "include",
-              });
+              const response = await fetch(
+                "https://port-0-dreamgreentour-back-rm6l2llw1nx5nw.sel5.cloudtype.app/write",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    location: formData.location,
+                    place: formData.place,
+                    text: formData.text,
+                    heart: 0,
+                  }),
+                  credentials: "include",
+                }
+              );
 
               if (!response.ok) {
                 throw new Error("후기 작성이 실패했습니다.");
