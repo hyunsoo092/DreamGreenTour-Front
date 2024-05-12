@@ -144,24 +144,22 @@ const router = createBrowserRouter([
   {
     path: "/airline",
     element: <Airline />,
-    children: [
-      {
-        path: "/airline/search",
-        element: <Search />,
-      },
-      {
-        path: "/airline/booking",
-        element: <Booking />,
-      },
-      {
-        path: "/airline/terms",
-        element: <Terms />,
-      },
-      {
-        path: "/airline/payment",
-        element: <Payment />,
-      },
-    ],
+  },
+  {
+    path: "/airline/search",
+    element: <Search />,
+  },
+  {
+    path: "/airline/booking",
+    element: <Booking />,
+  },
+  {
+    path: "/airline/terms",
+    element: <Terms />,
+  },
+  {
+    path: "/airline/payment",
+    element: <Payment />,
   },
   {
     path: "/theme",
