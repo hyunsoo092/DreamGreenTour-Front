@@ -5,7 +5,7 @@ import BasicSpan from "../basicSpan/BasicSpan";
 import S from "./style";
 import Layout from "../../layout/Layout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch,faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faSearch,faThumbsUp,faUser,faXmark } from "@fortawesome/free-solid-svg-icons";
 
 
 const Recommend = () => {
@@ -185,8 +185,54 @@ useEffect(()=>{
                         </p>
                         </S.PlanContentWrapper>
                 </S.Plan>
-                <S.Plan></S.Plan>
-                <S.Plan></S.Plan>
+                <S.Plan>
+                      <S.PlanImageWrapper>
+                          <S.PlanImage src="/img/picture/hasla.jpeg" className="PPImage"></S.PlanImage>
+                          </S.PlanImageWrapper>
+                        <S.PlanContentWrapper className="planContentWrapper">
+                        <S.Region1 className="region">
+                          <p className="heading">
+                          [강원]
+                          </p>
+                        <FontAwesomeIcon icon={faXmark} className="faXmark" />
+                        </S.Region1>
+
+                        <p className="heading2">
+                            하슬라 아트월드
+                        </p>
+                        
+                        <p className="small">
+                        강미술관, 카페, 호텔을 갖춘 현대적인 해변 복합 건물로 인근에 조각품이 있는 경치 좋은 공원이 있습니다.
+                        </p>
+                        <p className="small">
+                        강원도 강릉시 강동면 율곡로 1441
+                        </p>
+                        </S.PlanContentWrapper>
+                </S.Plan>
+                <S.Plan>
+                      <S.PlanImageWrapper>
+                          <S.PlanImage src="/img/picture/keongpo.jpeg" className="PPImage"></S.PlanImage>
+                          </S.PlanImageWrapper>
+                        <S.PlanContentWrapper className="planContentWrapper">
+                        <S.Region1 className="region">
+                          <p className="heading">
+                          [강원]
+                          </p>
+                        <FontAwesomeIcon icon={faXmark} className="faXmark" />
+                        </S.Region1>
+
+                        <p className="heading2">
+                            경포 해변
+                        </p>
+                        
+                        <p className="small">
+                        경포해수욕장, 또는 경포해변은 강원특별자치도 강릉시 안현동에 위치한 해수욕장이다
+                        </p>
+                        <p className="small">
+                        강릉시
+                        </p>
+                        </S.PlanContentWrapper>
+                </S.Plan>
     
               </S.PlanWrapper>
             </S.DetailContentsLeft>
@@ -202,13 +248,68 @@ useEffect(()=>{
                   <S.PDContentsDiv>
                   한국 농림부에서 지정한 동물복지와 산림보존에 특화된 목장이다. 20만 5,000㎡의 넓은 초지에 양들을 자유로이 방목한다. 1989년에 첫 축사를 완공하고 1991년에 면양을 들인 목장은 오늘날 면양 사육에 관해 한국 최고 수준의 시스템을 갖춘 목장으로 성장했다. 대관령 양떼목장에서 즐길 거리는 크게 두 가지, 산책로 걷기와 먹이 주기 체험이다. 목장을 에두르는 1.2km 길이의 산책로는 40분가량이 소요된다. 야생식물이 자라는 산책로를 걸으며 초지에서 풀을 뜯는 양 떼를 만날 수 있다. 참고로 양은 초지 풀이 자라는 5월 중순~10월 말에 방목되고, 겨울에는 축사 안에서 생활한다. 산책로 초입에는 SNS 포토존으로 유명한 나무 움막이 있고, 산책로 중간 지점이자 목장 정상인 해발 920m에서 바라보는 백두대간은 막힌 가슴을 시원스럽게 한다. 산책로 마지막 코스인 먹이 주기 체험장에서는 축사 안의 양에게 건초를 줄 수 있다.
                   </S.PDContentsDiv>
-              <p>대표 리뷰2개</p>
+              <S.ReviewWrapper>
+                <S.ReviewDiv>
+                  <S.ReviewUserDiv>
+                      <S.UserImg>
+                        <FontAwesomeIcon icon={faUser} className="faUser"></FontAwesomeIcon>
+                      </S.UserImg>
+                      <p className="UserId">nsoe12</p>
+                  </S.ReviewUserDiv>
+                  <S.ReviewContent>
+                  <p>
+                  햇빛은 좀 강했지만 그래도 너무 재미있고 귀여운 양들을 보고 마음도 편안해 지는 곳이었어요~ 아이들, 연인과 같이 가보면 정말 뜻 깊을거같아요~ 목장 풍경이 멋있어요 양도 생각보다 크고 귀여워요. 먹이주기 체험도 재밌었네요. 한 시간 반이면 다 보는데 충분해요. 경험상 가보기에 나쁘지 않은 거 같네요. 오르막길도 적당해서 안힘들어요
+                  </p>
+                  </S.ReviewContent>
+                  <S.Reviewthumbs>
+                    <FontAwesomeIcon icon={faThumbsUp} className="faThumbsUp"></FontAwesomeIcon> 31
+                  </S.Reviewthumbs>
+                </S.ReviewDiv>
+
+                <S.ReviewDiv>
+                  <S.ReviewUserDiv>
+                      <S.UserImg>
+                        <FontAwesomeIcon icon={faUser} className="faUser"></FontAwesomeIcon>
+                      </S.UserImg>
+                      <p className="userId">asdfogiwm12</p>
+                  </S.ReviewUserDiv>
+                  <S.ReviewContent>
+                  <p>
+                  굿굿 날씨가 좋아서 모두 좋음 생각보다 더러운 양들이지만 그래도 좋다.
+                  </p>
+                  </S.ReviewContent>
+                  <S.Reviewthumbs>
+                    <FontAwesomeIcon icon={faThumbsUp} className="faThumbsUp"></FontAwesomeIcon> 25
+                  </S.Reviewthumbs>
+                  
+                  
+                </S.ReviewDiv>
+                 
+               </S.ReviewWrapper>
               </S.DetailContentsContainer>
               
             </S.DetailContentsRight>
 
         </S.DetailContentsWrapper>
     </S.ContentsWrapper>
+    <S.Footer>
+        <S.end>
+              <p className='last'>투어/입장권 예약상담</p>
+                  <S.icons>
+                    <FontAwesomeIcon icon={faPen}/>
+                    <p>투어/입장권 상품 문의는 투어/입장권 상품페이지 내 "상품문의" 게시판을 이용 부탁합니다. <br />
+                    투어/입장권 일반 문의는 "고객문의" 게시판을 이용 부탁합니다.<br />
+                    투어/입장권 예약, 취소, 결제, 환불은 "자주 찾는 질문" 게시판에서 확인 부탁합니다.</p>
+                  </S.icons>
+              <p className='last'>투어/입장권 판매회원 가입</p>
+                  <S.icons>
+                    <FontAwesomeIcon icon={faPen}/>
+                    <p>투어/입장권 상품 판매는 "판매회원 가입 안내" 페이지에서 별도의 회원가입 후 가능합니다. <br />
+                      판매회원 가입 문의 (국내)hhj1217@hanatour.com <br />
+                      (해외)jinie27@hanatour.com</p>
+                  </S.icons>
+              </S.end>
+          </S.Footer>
 
   </S.Wrapper>
   </>

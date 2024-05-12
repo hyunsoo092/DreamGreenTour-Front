@@ -64,12 +64,12 @@ font-family: ${theme.FONT_FAMILY.secondary};
               cursor:pointer;
               /* color: gray; */
               .dropdown-content {display: block;}
-              .dropbtn {background-color: #37A551;
+              .dropbtn {background-color: #37a5512e;
                         color: rgb(24,49,83,1);
               }//호버 후 배경색
               } 
             .dropbtn {
-              background-color: #F5F6F6; //호버 전 배경색
+              background-color: #37A551; //호버 전 배경색
               color: rgb(24,49,83,1); //글자색
               padding: 13px 32px 13px 32px;
               font-size: 18px;
@@ -140,46 +140,46 @@ align-items: center;
 S.ThemeTravel=styled.div`
     width: 80vw;
     border-radius: 10px;
-    /* background-color: ${({ theme }) => theme.PALLETE.primary["inputBack"]}; */
     padding-top:20px;
-
-    
   `
   S.ThemeTravelBanner=styled.div`
   display: flex;
   margin: auto;
   border-radius: 10px;
   padding: 10px 10px 10px 10px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-family: ${theme.FONT_FAMILY.secondary};
+  position: relative;
   `
     S.ThemeImageWrapper=styled.div`
     margin-right: 1%;
     margin-left: 1%;
-    display: inline-block;
+    /* display: inline-block; */
+
       `
         S.ThemeImageDiv = styled.div`
-        width: 300px;
-        height: 260px;
+        width: 250px;
+        height: 230px;
         border-radius: 10px;
         box-shadow: 5px 5px 5px gray;
-        display: flex;
-
+        display: block;
+    
         `
         S.ThemeImage = styled.img`
-        width: 300px;
-        height: 260px;
+        width: 250px;
+        height: 230px;
         border-radius: 10px;
         `
     S.Price=styled.div`
-    width: 300px;
+    width: 250px;
     height: 30px;
     padding: 0px 10px 0px 10px;
-    font-size: ${({theme}) => theme.FONT_SIZE["h4"]};
+    font-size: ${({theme}) => theme.FONT_SIZE["h5"]};
     font-weight: 600;
+    color: red;
     `
     S.TitleDiv=styled.div`
-    width: 300px;
+    width: 250px;
     height: 50px;
     font-size: ${({theme}) => theme.FONT_SIZE["h5"]};
     font-weight: 500;
@@ -194,11 +194,14 @@ S.ThemeTravel=styled.div`
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
       overflow: hidden;
+      font-size: ${theme.FONT_SIZE.h6};
+               font-weight: ${theme.FONT_WEIGHT.bold};
+               font-family: ${theme.FONT_FAMILY.body};
     }
     `
 
           S.HeartIcon = styled.div`
-          width: 300px;
+          width: 250px;
           height: 50px;
           display: flex; 
           justify-content: space-between;
@@ -207,7 +210,7 @@ S.ThemeTravel=styled.div`
       ${flexSpaceAroundCenter}
       margin-top: 5px;
       margin-left: 10px;
-      font-size: 18px;
+      font-size: 16px;
       color: #94B396;
       font-family: ${theme.FONT_FAMILY.alternate};
       `

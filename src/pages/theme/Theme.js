@@ -52,7 +52,6 @@ useEffect(()=>{
     <S.Wrapper className="Wrapper">
       <NavLink to={'/theme'}>
     <S.ImageWrapper className="ImageWrapper">
-    {/* src={process.env.PUBLIC_URL + './Guadalupe.jpeg'}  */}
                 <S.MainImg className="MainImg" >
                   <BasicSpan color={"white"} style1={'medium'} size={'heading'} >이색 테마 여행</BasicSpan>  
                   <BasicSpan color={"black"} style1={'small'} size={'small'}>#데이트 코스 #추천 #국내</BasicSpan>
@@ -84,19 +83,203 @@ useEffect(()=>{
       
 <S.Wrapper className="Wrapper">
   <S.ThemeTravel className="ThemeTravel">
-  <S.ThemeTravelBanner className="ThemeTravelBanner" >
-    {theme.slice(0,4).map((themeTrip,i)=>(
-      <ThemeComponent key={i} themeTrip={themeTrip} getTheme={getTheme}/>
-      
-    ))}
-  {/* {themeView} */}
-  </S.ThemeTravelBanner>
+        <S.ThemeTravelBanner className="ThemeTravelBanner" >
+          {/* {theme.slice(0,4).map((themeTrip,i)=>(
+            <ThemeComponent key={i} themeTrip={themeTrip} getTheme={getTheme}/>
+          ))} */}
+                    <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${1}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/sangso.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#겨울 #여행</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        19000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            겨울이라 좋은 대전 상소동 산림욕장
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${2}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/sakura.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#봄 #여행</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                       26000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            봄에는 벚꽃 여행,기차 여행
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${3}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/slide_yeosu.jpg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#여수 #여행 #패키지</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        50000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            여수 돌산 투어, 요트투어 패키지
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${4}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/ice.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#겨울 #여행</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        42000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            얼음 동산,우암사적공원
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+        </S.ThemeTravelBanner>
+        <S.ThemeTravelBanner className="ThemeTravelBanner" >   
+          {/* {theme.slice(4,8).map((themeTrip,i)=>(
+            <ThemeComponent key={i} themeTrip={themeTrip} getTheme={getTheme}/>
+          ))} */}
+             <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${5}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/winter2.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#송도 #여행</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        19000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            동그라미,동그라미
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${6}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/winter.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#겨울 #여행 #산림욕</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        15000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            겨울이라 좋은 대전 상소동 산림욕장
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${7}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/k2.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#가을 #데이트</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        10000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            경의선 숲길
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                <S.ThemeImageWrapper>
+                  <Link to={`/recommend/${8}`}>
+                    <S.ThemeImageDiv >    
+                        <S.ThemeImage src={process.env.PUBLIC_URL + '/img/picture/artview.jpeg'}></S.ThemeImage>
+                    </S.ThemeImageDiv>
+                  
+                        <S.HeartIcon >
+                          <S.SpanTag>#서울 #데이트</S.SpanTag>
+                            <S.Button>
+                              <FontAwesomeIcon icon={faHeart} className='heartIcon'/>
+                            </S.Button>
+                        </S.HeartIcon>
+                        <S.Price>
+                        19000
+                        </S.Price>
+                        <S.TitleDiv >
+                            <p className='titleSpan'>
+                            리움 미술관
+                              </p>
+                        </S.TitleDiv>
+                      
+                    </Link>
+                </S.ThemeImageWrapper>
+                
+        </S.ThemeTravelBanner>
 
-  <S.ThemeTravelBanner className="ThemeTravelBanner" >
-    {theme.slice(4,8).map((themeTrip,i)=>(
-      <ThemeComponent key={i} themeTrip={themeTrip} getTheme={getTheme}/>
-    ))}
-  </S.ThemeTravelBanner>
+
 
 
         <S.PopularityDiv className="PopularityDiv">

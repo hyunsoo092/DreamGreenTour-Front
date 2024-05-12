@@ -117,7 +117,7 @@ S.Plan = styled.div`
 /* background-color: black; */
 cursor: pointer;
 width: 90%;
-height: 12vh;
+height: 150px;
 margin:20px 0px 20px 0px;
 border-radius: 5px;
 box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.1);
@@ -168,6 +168,8 @@ S.Region1 = styled.div`
 width: 100%;
 height: 20%;
 display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
       .heading{
             font-size: ${theme.FONT_SIZE.h8};
                font-weight: 600;
@@ -175,11 +177,15 @@ display: flex;
              padding:5px;
            width: 50%;
            }
-      .faXmark{
-            font-size: 23px;
-            margin-left: 300px;
-            width: 50%;
-          }
+           
+           `
+S.Xmark = styled.div`
+width: 50%;
+.faXmark{
+      font-size: 23px;
+     
+    }
+
 `
 S.DetailContentsRight = styled.div`
 width: 50%;
@@ -219,7 +225,8 @@ border-radius: 5px;
 `
 S.PDContentsDiv = styled.div`
 width: 90%;
-height: 35vh;
+max-height: 600px;
+overflow: auto;
 flex-direction: column;
 align-items: center;
 display: flex;
@@ -232,4 +239,144 @@ font-weight: ${theme.FONT_WEIGHT.regular};
 font-size: ${theme.FONT_SIZE.h6};
             font-family: ${theme.FONT_FAMILY.heading};
 `
+
+S.ReviewWrapper = styled.div`
+width: 90%;
+height: auto;
+flex-direction: column;
+align-items: center;
+display: flex;
+padding-top:10px;
+margin:5px 40px 10px 40px;
+background-color: #f5f5f5;
+border-radius: 5px;
+line-height: 210%;
+font-weight: ${theme.FONT_WEIGHT.regular};
+font-size: ${theme.FONT_SIZE.h5};
+            font-family: ${theme.FONT_FAMILY.heading};
+`
+S.ReviewDiv = styled.div`
+width: 100%;
+height: auto;
+background-color: white;
+border-radius: 5px;
+margin: 10px 0px 10px 0px;
+`
+S.ReviewUserDiv = styled.div`
+width: 100%;
+height: 50px;
+display: flex;
+align-items: center;
+border-bottom: 1px solid gray;
+p{
+  color: #37A551;
+  padding: 10px;
+  font-weight: ${theme.FONT_WEIGHT.bold};
+  font-size: ${theme.FONT_SIZE.h6};
+  font-family: ${theme.FONT_FAMILY.heading};
+  cursor: pointer;
+}
+`
+S.UserImg=styled.div`
+width: 30px;
+height: 30px;
+border-radius: 50px;
+border: 1px solid gray;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 10px;
+background-color: #f5f5f5;
+.faUser{
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+`
+S.ReviewContent=styled.div`
+width: 100%;
+height: auto;
+background-color: white;
+border-radius: 5px;
+max-height: 100px;
+overflow: auto;
+p{
+  padding: 10px;
+  font-weight: ${theme.FONT_WEIGHT.regular};
+  font-size: ${theme.FONT_SIZE.h7};
+  font-family: ${theme.FONT_FAMILY.heading};
+  cursor: pointer;
+}
+`
+
+
+S.Reviewthumbs = styled.div`
+padding: 10px;
+  font-size: ${theme.FONT_SIZE.h5};
+  font-family: ${theme.FONT_FAMILY.body};
+  font-weight: ${theme.FONT_WEIGHT.bold};
+& svg.faThumbsUp path{
+      color : #37A551;
+    }
+`
+
+
+
+
+S.Footer = styled.div`
+width: 80vw;
+height: 500px;
+/* background-color:  ${({ theme }) => theme.PALLETE.primary["inputBack"]}; */
+`
+
+S.end = styled.div`
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 400px;
+  .last { 
+  font-size: ${theme.FONT_SIZE.h3};
+  font-weight: ${theme.FONT_WEIGHT.bold};
+  font-family: ${theme.FONT_FAMILY.heading};
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 200px) and (max-width: 450px) {
+    font-size: ${theme.FONT_SIZE.h4};
+  font-weight: ${theme.FONT_WEIGHT.bold};
+  font-family: ${theme.FONT_FAMILY.heading};
+  margin-bottom: 10px;
+   }
+  }
+
+  @media screen and (min-width: 200px) and (max-width: 450px) {
+  width: 90vw;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 50px;
+  }
+`
+S.icons = styled.div`
+  margin-left: 30px;
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin-bottom: 20px;
+  @media screen and (min-width: 200px) and (max-width: 450px) {
+
+  }
+
+  p {
+    line-height: 1.5; /* 예시로 줄 간격을 1.5배로 설정 */
+  }
+`
+
 export default S;
