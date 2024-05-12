@@ -140,11 +140,11 @@ const router = createBrowserRouter([
     path: "/hotel/payment",
     element: <HPayment />,
   },
-
   {
     path: "/airline",
     element: <Airline />,
   },
+
   {
     path: "/airline/search",
     element: <Search />,

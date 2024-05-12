@@ -144,6 +144,30 @@ const amenitiesObjects = amenities.map((amenity, index) => ({
 }));
 
 const List = () => {
+    // 호텔 데이터를 상태로 관리
+    const [hotels, setHotels] = useState([]);
+    // 데이터 로딩 상태를 표시하기 위한 상태
+    const [isLoading, setIsLoading] = useState(false);
+    // 에러 상태
+    const [error, setError] = useState(null);
+
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(0);
+
+    useEffect(() => {
+        fetch("http://localhost:3001/hotelData") // 데이터를 불러올 URL
+            .then((response) => response.json()) // 응답을 JSON 형태로 파싱
+            .then((data) => {
+                setHotels(data); // 상태에 데이터 저장
+                if (data.length > 0) {
+                    const prices = data.map((hotel) => parseInt(hotel.price));
+                    setMinPrice(Math.min(...prices)); // 최소 가격 계산
+                    setMaxPrice(Math.max(...prices)); // 최대 가격 계산
+                }
+            })
+            .catch((error) => console.error("Error fetching data: ", error));
+    }, []);
+
     const [activeIds, setActiveIds] = useState({
         localData: new Set(),
         hotelGrade: new Set(),
@@ -167,6 +191,7 @@ const List = () => {
         }
         return newSet;
     }
+
     const location = useLocation();
 
     const navigate = useNavigate();
@@ -185,7 +210,7 @@ const List = () => {
     const [position2, setPosition2] = useState(230);
     const sliderRef = useRef(null);
 
-    const [showHotelSearch, setShowHotelSearch] = useState(true);
+    const [showHotelSearch, setShowHotelSearch] = useState(false);
     const [selectedLocation, setSelectedLocation] = useState("");
 
     const handleMouseDown = (index) => {
@@ -240,6 +265,21 @@ const List = () => {
         setSelectedLocation(locationName); // 선택된 지역 상태 업데이트
         setShowHotelSearch(!showHotelSearch); // HotelSearchContainer 표시
     };
+
+    // 선택된 지역에 따라 호텔 데이터를 필터링
+    const [selectedRegion, setSelectedRegion] = useState("");
+    const [filteredHotels, setFilteredHotels] = useState([]);
+
+    useEffect(() => {
+        if (localData.name) {
+            const matchingHotels = hotels.filter(
+                (hotel) => hotel.local === selectedRegion
+            );
+            setFilteredHotels(matchingHotels);
+        } else {
+            setFilteredHotels([]);
+        }
+    }, [selectedRegion, hotels]);
 
     return (
         <>
@@ -324,8 +364,12 @@ const List = () => {
                                 </S.DivListForm3TitleFrame>
                                 <S.DivHotelPriceSlider>
                                     <S.DivHotelPriceMinMaxFrame>
-                                        <S.DivHotelPriceMin></S.DivHotelPriceMin>
-                                        <S.DivHotelPriceMax></S.DivHotelPriceMax>
+                                        <S.DivHotelPriceMin>
+                                            {minPrice.toLocaleString()}
+                                        </S.DivHotelPriceMin>
+                                        <S.DivHotelPriceMax>
+                                            {maxPrice.toLocaleString()}
+                                        </S.DivHotelPriceMax>
                                     </S.DivHotelPriceMinMaxFrame>
                                     <S.DivSliderFrame
                                         onMouseMove={handleMouseMove}
@@ -350,11 +394,15 @@ const List = () => {
                                         />
                                     </S.DivSliderFrame>
                                     <S.DivPriceInputFrame>
-                                        <S.InputPriceMin />
+                                        <S.InputPriceMin
+                                            value={minPrice.toLocaleString()}
+                                        />
                                         <S.DivPriceMinMaxBetween>
                                             ~
                                         </S.DivPriceMinMaxBetween>
-                                        <S.InputPriceMax />
+                                        <S.InputPriceMax
+                                            value={maxPrice.toLocaleString()}
+                                        />
                                     </S.DivPriceInputFrame>
                                 </S.DivHotelPriceSlider>
                             </S.DivListForm3>
@@ -595,110 +643,140 @@ const List = () => {
                                         총
                                     </S.DivListCountTitle1>
                                     <S.DivListCountTitle2>
-                                        114개
+                                        {hotels.length}개
                                     </S.DivListCountTitle2>
                                     <S.DivListCountTitle3>
                                         의 검색결과가 있습니다.
                                     </S.DivListCountTitle3>
                                 </S.DivListCountTitleFrame>
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <S.DivHotelInfoContainer1>
+                                        {hotels.map((hotel) => (
+                                            <ul>
+                                                <li>
+                                                    <S.DivHotelInfoImageContainer
+                                                        key={hotel.id}
+                                                    >
+                                                        <S.DivHotelInfoImageFrame>
+                                                            <S.ImageHotelInfo src={hotel.hotelpicture} />
+                                                            <S.DivImageHotelInfo></S.DivImageHotelInfo>
+                                                        </S.DivHotelInfoImageFrame>
+                                                    </S.DivHotelInfoImageContainer>
+                                                    <S.DivHotelInfoContainer2>
+                                                        <S.DivHotelInfoFrame>
+                                                            <S.DivHotelGrade>
+                                                                <S.DivHotelGradeFont>
+                                                                    {
+                                                                        hotel.grade
+                                                                    }
+                                                                </S.DivHotelGradeFont>
+                                                            </S.DivHotelGrade>
+                                                            <S.DivHeartImageFrame>
+                                                                <S.DivHeartImage>
+                                                                    <FontAwesomeIcon
+                                                                        icon={
+                                                                            faHeart
+                                                                        }
+                                                                    />
+                                                                </S.DivHeartImage>
+                                                            </S.DivHeartImageFrame>
+                                                        </S.DivHotelInfoFrame>
+                                                        <S.DivHotelInfoNameContainer>
+                                                            <S.DivHotelInfoNameFrame>
+                                                                <S.DivHotelInfoName>
+                                                                    {
+                                                                        hotel.korName
+                                                                    }
+                                                                </S.DivHotelInfoName>
+                                                            </S.DivHotelInfoNameFrame>
+                                                        </S.DivHotelInfoNameContainer>
+                                                        <S.DivHotelInfoEngNameContainer>
+                                                            <S.DivHotelInfoEngNameFrame>
+                                                                <S.DivHotelInfoEngName>
+                                                                    {
+                                                                        hotel.engName
+                                                                    }
+                                                                </S.DivHotelInfoEngName>
+                                                            </S.DivHotelInfoEngNameFrame>
+                                                        </S.DivHotelInfoEngNameContainer>
+                                                        <S.DivHotelInfoAddrMargin>
+                                                            <S.DivHotelInfoAddrContainer>
+                                                                <S.DivHotelInfoAddrImageFrame>
+                                                                    <S.DivHotelInfoAddrImage>
+                                                                        <FontAwesomeIcon
+                                                                            icon={
+                                                                                faLocationCrosshairs
+                                                                            }
+                                                                        />
+                                                                    </S.DivHotelInfoAddrImage>
+                                                                </S.DivHotelInfoAddrImageFrame>
+                                                                <S.DivHotelInfoAddrFrame>
+                                                                    <S.DivHotelInfoAddr>
+                                                                        {
+                                                                            hotel.address
+                                                                        }
+                                                                    </S.DivHotelInfoAddr>
+                                                                </S.DivHotelInfoAddrFrame>
+                                                            </S.DivHotelInfoAddrContainer>
+                                                        </S.DivHotelInfoAddrMargin>
 
-                                <S.DivHotelInfoContainer1>
-                                    <S.DivHotelInfoImageContainer>
-                                        <S.DivHotelInfoImageFrame>
-                                            <S.ImageHotelInfo src="_92-dd-12-f-7-b-jpg0.png" />
-                                            <S.DivImageHotelInfo></S.DivImageHotelInfo>
-                                        </S.DivHotelInfoImageFrame>
-                                    </S.DivHotelInfoImageContainer>
+                                                        <S.DivShoWMapPriceMargin>
+                                                            <S.DivShoWMapPriceMargin>
+                                                                <S.DivShowMapContainer2>
+                                                                    <S.DivImageShowMap2>
+                                                                        <FontAwesomeIcon
+                                                                            icon={
+                                                                                faMap
+                                                                            }
+                                                                            style={{
+                                                                                color: "#0fe69e",
+                                                                            }}
+                                                                            className="mapIcon"
+                                                                        />
+                                                                    </S.DivImageShowMap2>
+                                                                    <S.DivShowToMapFrame>
+                                                                        <S.DivShowToMap>
+                                                                            지도로보기
+                                                                        </S.DivShowToMap>
+                                                                    </S.DivShowToMapFrame>
+                                                                </S.DivShowMapContainer2>
 
-                                    <S.DivHotelInfoContainer2>
-                                        <S.DivHotelInfoFrame>
-                                            <S.DivHotelGrade>
-                                                <S.DivHotelGradeFont>
-                                                    5.0성급
-                                                </S.DivHotelGradeFont>
-                                            </S.DivHotelGrade>
-                                            <S.DivHeartImageFrame>
-                                                <S.DivHeartImage>
-                                                    <FontAwesomeIcon
-                                                        icon={faHeart}
-                                                    />
-                                                </S.DivHeartImage>
-                                            </S.DivHeartImageFrame>
-                                        </S.DivHotelInfoFrame>
-                                        <S.DivHotelInfoNameContainer>
-                                            <S.DivHotelInfoNameFrame>
-                                                <S.DivHotelInfoName>
-                                                    포시즌스호텔 서울
-                                                </S.DivHotelInfoName>
-                                            </S.DivHotelInfoNameFrame>
-                                        </S.DivHotelInfoNameContainer>
-                                        <S.DivHotelInfoEngNameContainer>
-                                            <S.DivHotelInfoEngNameFrame>
-                                                <S.DivHotelInfoEngName>
-                                                    Four Seasons Hotel Seoul
-                                                </S.DivHotelInfoEngName>
-                                            </S.DivHotelInfoEngNameFrame>
-                                        </S.DivHotelInfoEngNameContainer>
-                                        <S.DivHotelInfoAddrMargin>
-                                            <S.DivHotelInfoAddrContainer>
-                                                <S.DivHotelInfoAddrImageFrame>
-                                                    <S.DivHotelInfoAddrImage>
-                                                        <FontAwesomeIcon
-                                                            icon={
-                                                                faLocationCrosshairs
-                                                            }
-                                                        />
-                                                    </S.DivHotelInfoAddrImage>
-                                                </S.DivHotelInfoAddrImageFrame>
-                                                <S.DivHotelInfoAddrFrame>
-                                                    <S.DivHotelInfoAddr>
-                                                        롯데백화점 부근에 위치
-                                                    </S.DivHotelInfoAddr>
-                                                </S.DivHotelInfoAddrFrame>
-                                            </S.DivHotelInfoAddrContainer>
-                                        </S.DivHotelInfoAddrMargin>
-
-                                        <S.DivShoWMapPriceMargin>
-                                            <S.DivShoWMapPriceMargin>
-                                                <S.DivShowMapContainer2>
-                                                    <S.DivImageShowMap2>
-                                                        <FontAwesomeIcon
-                                                            icon={faMap}
-                                                            style={{
-                                                                color: "#0fe69e",
-                                                            }}
-                                                            className="mapIcon"
-                                                        />
-                                                    </S.DivImageShowMap2>
-                                                    <S.DivShowToMapFrame>
-                                                        <S.DivShowToMap>
-                                                            지도로보기
-                                                        </S.DivShowToMap>
-                                                    </S.DivShowToMapFrame>
-                                                </S.DivShowMapContainer2>
-
-                                                <S.DivPriceMargin>
-                                                    <S.DivPriceContainer>
-                                                        <S.DivPriceFrame2>
-                                                            <S.DivPriceFont>
-                                                                993,490
-                                                            </S.DivPriceFont>
-                                                            <S.DivPriceWonFont>
-                                                                원 ~
-                                                            </S.DivPriceWonFont>
-                                                        </S.DivPriceFrame2>
-                                                    </S.DivPriceContainer>
-                                                    <S.DivPriceNoticeFrame>
-                                                        <S.DivPriceNotice>
-                                                            (1박기준 /
-                                                            세금봉사료 포함)
-                                                        </S.DivPriceNotice>
-                                                    </S.DivPriceNoticeFrame>
-                                                </S.DivPriceMargin>
-                                            </S.DivShoWMapPriceMargin>
-                                        </S.DivShoWMapPriceMargin>
-                                    </S.DivHotelInfoContainer2>
-                                </S.DivHotelInfoContainer1>
+                                                                <S.DivPriceMargin>
+                                                                    <S.DivPriceContainer>
+                                                                        <S.DivPriceFrame2>
+                                                                            <S.DivPriceFont>
+                                                                                {
+                                                                                    hotel.price
+                                                                                }
+                                                                            </S.DivPriceFont>
+                                                                            <S.DivPriceWonFont>
+                                                                                원
+                                                                                ~
+                                                                            </S.DivPriceWonFont>
+                                                                        </S.DivPriceFrame2>
+                                                                    </S.DivPriceContainer>
+                                                                    <S.DivPriceNoticeFrame>
+                                                                        <S.DivPriceNotice>
+                                                                            (1박기준
+                                                                            /
+                                                                            세금봉사료
+                                                                            포함)
+                                                                        </S.DivPriceNotice>
+                                                                    </S.DivPriceNoticeFrame>
+                                                                </S.DivPriceMargin>
+                                                            </S.DivShoWMapPriceMargin>
+                                                        </S.DivShoWMapPriceMargin>
+                                                    </S.DivHotelInfoContainer2>{" "}
+                                                </li>
+                                            </ul>
+                                        ))}
+                                    </S.DivHotelInfoContainer1>
+                                </div>
                             </S.DivLocalFrame1>
                         </S.DivListMainHeader>
                     </S.DivListFrame>

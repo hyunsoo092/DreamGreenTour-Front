@@ -11,6 +11,7 @@ import MdRecommand from "./MdRecommand";
 import PopularHotelSwiper from "./PopularHotelSwiper";
 
 const Hotel = () => {
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
@@ -27,6 +28,7 @@ const Hotel = () => {
           </Link>
         </S.HotelTabHeadingDiv>
       </S.AirHotelTabDiv>
+
 
       <HotelSwiper />
       <HotelSearchContainer />

@@ -6,6 +6,7 @@ import PersonSeatComponent from "./PersonSeatComponent";
 import RoomComponent from "./RoomComponent";
 
 const HotelSearchContainer = () => {
+    
     const [adultCount, setAdultCount] = useState(2); // 기본 성인 2명
     const [childrenCount, setChildrenCount] = useState(0); // 기본 아동 0명
     const [roomCount, setRoomCount] = useState(1); // 기본 객실 1개

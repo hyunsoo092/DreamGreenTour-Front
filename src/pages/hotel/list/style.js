@@ -804,7 +804,7 @@ S.DivAdvice = styled.div`
 
 S.DivListMainHeader = styled.div`
     width: 1200px;
-    height: 100%;
+    height: 12%;
     padding: 0px 0px 30px 0px;
     display: flex;
     flex-direction: column;
@@ -1042,7 +1042,6 @@ S.DivPersonRoomImage = styled.div`
 
 S.ImagePersonRoom = styled.img`
     width: 100%;
-    height: 100%;
     position: absolute;
     right: 0%;
     left: 0%;
@@ -1307,7 +1306,7 @@ S.DivHotelInfoContainer1 = styled.div`
     border-width: 0px 0px 1px 0px;
     padding: 30px 0px 31px 0px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
     width: 900px;
@@ -1319,7 +1318,7 @@ S.DivHotelInfoContainer1 = styled.div`
 S.DivHotelInfoImageContainer = styled.div`
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 0px;
     align-items: flex-start;
     justify-content: flex-start;
